@@ -1,23 +1,14 @@
 -- Textadept Module for emacs-style kill-ring fucntionality.
 -- Copyleft 2020 Timothy Walsh.
-
----[[
--- keybindings for the kill ring
--- Can I define these here, or do they need to be somewhere else?
-keys.ck = {buffer.kill, 'cut'}
-keys.ak = {buffer.kill, 'copy'}
-keys.cy = {buffer.yank}
-keys.ay = {buffer.yank, 'cycle'}
-keys.aY = {buffer.yank, 'reverse'}
---]]
+emacs_style_kill_ring = {}
 
 -- The kill ring. 
--- @field maxn is the maximum size of the kill ring
+-- @field maxn is the maximum size of the kill rking
 local kill_ring = { pos = 1, maxn = 20 }
--- Killring functions
+-- emacs_style_kill_ring functions
 local insert_into_kill_ring, scroll_kill_ring
 
-function kill(cut)
+function emacs_style_kill_ring.kill(cut)
   local buffer = buffer
   local txt = buffer:get_sel_text()
   if #txt == 0 then buffer:line_end_extend() end
@@ -27,7 +18,7 @@ function kill(cut)
   if cut then buffer:cut() else buffer:copy() end
 end
 
-function yank(action, reindent)
+function emacs_style_kill_ring.yank(action, reindent)
   local buffer = buffer
   local anchor, caret = buffer.anchor, buffer.current_pos
   if caret < anchor then anchor = caret end
@@ -55,5 +46,15 @@ scroll_kill_ring = function(direction)
     if kill_ring.pos > #kill_ring then kill_ring.pos = 1 end
   end
 end
--- Do I need to return something??
-return kill_ring
+
+---[[
+-- keybindings for the kill ring
+-- Can I define these here, or do they need to be somewhere else?
+keys.ck = {kill_ring.kill, 'cut'}
+keys.ak = {kill_ring.kill, 'copy'}
+keys.cy = {kill_ring.yank}
+keys.ay = {kill_ring.yank, 'cycle'}
+keys.aY = {kill_ring.yank, 'reverse'}
+--]]
+
+return emacs_style_kill_ring

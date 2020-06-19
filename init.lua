@@ -16,7 +16,7 @@ textadept.file_types.extensions.jl = 'julia'
 keys.cb = function() ui.switch_buffer(true) end
 
 --TODO implement emacs-style kill ring
-kill_ring = require('kill_ring')
+emacs_style_kill_ring = require('emacs_style_kill_ring')
 
 --TODO implelent TeX-style unicode character insert
 

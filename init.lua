@@ -1,7 +1,8 @@
 
 ---- theme
 if not CURSES then
-	buffer:set_theme("base16-woodland", {
+	buffer:set_theme("base16-timbot-woodland", {
+	--buffer:set_theme("base16-woodland", {
 		--font = "Inconsolata",
 		--font = "Anonymous Pro Regular", 
 		fontsize = 16
@@ -15,5 +16,8 @@ textadept.file_types.extensions.jl = 'julia'
 keys.cb = function() ui.switch_buffer(true) end
 
 --TODO implement emacs-style kill ring
+kill_ring = require('kill_ring')
 
 --TODO implelent TeX-style unicode character insert
+
+--TODO draw a feint line at column 80

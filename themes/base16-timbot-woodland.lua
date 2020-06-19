@@ -1,32 +1,31 @@
--- Base 16 Theme: Timbot Dark
--- Base16 Theme: Classic Dark
+-- Theme Timbot Woodland
+-- Based on: Base16 Theme: Woodland
 -- http://chriskempson.com/projects/base16/
--- Theme author: Jason Heeris (http://heeris.id.au)
+-- Theme author: Jay Cornwall (https://jcornwall.com)
 -- Template Repository: https://github.com/rgieseke/base16-textadept
 -- Template adapted from Textadept's default templates
 -- Copyright 2007-2020 Mitchell mitchell.att.foicica.com. MIT licensed.
--- Modified by Timothy Walsh 2020
 
 local buffer = buffer
 local property, property_int = buffer.property, buffer.property_int
 
 -- Base16 colors
-property['color.base00'] = 0x151515
-property['color.base01'] = 0x202020
-property['color.base02'] = 0x303030
-property['color.base03'] = 0x969696
-property['color.base04'] = 0xB0B0B0
-property['color.base05'] = 0xD0D0D0
-property['color.base06'] = 0xE0E0E0
-property['color.base07'] = 0xF5F5F5
-property['color.base08'] = 0x4241AC 
-property['color.base09'] = 0x4584D2
-property['color.base0A'] = 0x75BFF4
-property['color.base0B'] = 0x59A990
-property['color.base0C'] = 0xAAB575
-property['color.base0D'] = 0xB59F6A 
-property['color.base0E'] = 0x9F75AA 
-property['color.base0F'] = 0xf6c0e7
+property['color.base00'] = 0x181e23
+property['color.base01'] = 0x252b30
+property['color.base02'] = 0x3a4148
+property['color.base03'] = 0x708b9d
+property['color.base04'] = 0x90a4b4
+property['color.base05'] = 0xb1bcca
+property['color.base06'] = 0xbcc8d7
+property['color.base07'] = 0xc8d4e4
+property['color.base08'] = 0x5c5cd3
+property['color.base09'] = 0x327fca
+property['color.base0A'] = 0x16ace0
+property['color.base0B'] = 0x53bab7
+property['color.base0C'] = 0x58b96e
+property['color.base0D'] = 0xd3a488
+property['color.base0E'] = 0xe290bb
+property['color.base0F'] = 0x6893b4
 
 -- Default font.
 property['font'], property['fontsize'] = 'Bitstream Vera Sans Mono', 10
@@ -48,19 +47,19 @@ property['style.folddisplaytext'] = 'fore:$(color.base01)'
 -- Token styles.
 property['style.class'] = 'fore:$(color.base0A)'
 property['style.comment'] = 'fore:$(color.base03)'
-property['style.constant'] = 'fore:$(color.base09)'
+property['style.constant'] = 'fore:$(color.base0F)'
 property['style.embedded'] = 'fore:$(color.base0F),back:$(color.base01)'
 property['style.error'] = 'fore:$(color.base08),italics'
 property['style.function'] = 'fore:$(color.base0D)'
-property['style.identifier'] = ''
-property['style.keyword'] = 'fore:$(color.base0E)'
+property['style.identifier'] = 'fore:$(color.base05)'
+property['style.keyword'] = 'fore:$(color.base0A)'
 property['style.label'] = 'fore:$(color.base08)'
-property['style.number'] = 'fore:$(color.base09)'
-property['style.operator'] = 'fore:$(color.base0F)'
+property['style.number'] = 'fore:$(color.base08)'
+property['style.operator'] = 'fore:$(color.base0E)' --05
 property['style.preprocessor'] = 'fore:$(color.base0B)'
 property['style.regex'] = 'fore:$(color.base0C)'
 property['style.string'] = 'fore:$(color.base0B)'
-property['style.type'] = 'fore:$(color.base0A)'
+property['style.type'] = 'fore:$(color.base09)'
 property['style.variable'] = 'fore:$(color.base08)'
 property['style.whitespace'] = ''
 

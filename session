@@ -1,13 +1,25 @@
-buffer: 1669 1669 26 /home/timothy/textadept_10.8.x86_64/modules/textadept/keys.lua
+buffer: 13131 13131 0 /home/timothy/.textadept/lexers/julia.lua
 bookmarks: 
-buffer: 430 430 0 /home/timothy/.textadept/init.lua
+buffer: 371 371 0 /home/timothy/julia-syntax-test-cases/test_file.jl
 bookmarks: 
-size: false 1695 1006
-view1: 2
+buffer: 0 0 0 [Message Buffer]
+bookmarks: 
+buffer: 0 0 0 /home/timothy/.textadept/themes/base16-timbot-dark.lua
+bookmarks: 
+buffer: 958 958 0 /home/timothy/.textadept/init.lua
+bookmarks: 
+buffer: 414 414 0 /home/timothy/.textadept/modules/emacs_style_kill_ring.lua
+bookmarks: 
+size: false 1834 1006
+view1: 6
 current_view: 1
+recent: /home/timothy/.textadept/modules/emacs_style_kill_ring.lua
 recent: /home/timothy/.textadept/init.lua
+recent: /home/timothy/.textadept/themes/base16-timbot-dark.lua
+recent: /home/timothy/julia-syntax-test-cases/test_file.jl
+recent: /home/timothy/.textadept/lexers/julia.lua
+recent: /home/timothy/textadept_10.8.x86_64/lexers/lexer.lua
+recent: /home/timothy/julia-stuff/decimal_clock/decimal_clock.jl
 recent: /home/timothy/textadept_10.8.x86_64/modules/textadept/keys.lua
 recent: /home/timothy/.textadept/modules/kill_ring.lua
 recent: /home/timothy/textadept_10.8.x86_64/core/keys.lua
-recent: /home/timothy/textadept_10.8.x86_64/modules/textadept/editing.lua
-recent: /home/timothy/textadept_10.8.x86_64/modules/textadept/command_entry.lua

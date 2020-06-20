@@ -199,6 +199,11 @@ lex:add_rule('luxor', token(lexer.CONSTANT, word_match[[
 ]]))
 lex:add_style('luxor', lexer.STYLE_CONSTANT)
 
+-- The names of user-defined fucntions should be highlighted
+-- I want to match just the word that comes after the word 'function'
+local user_defined_function = token(lexer.CONSTANT, 'function' * lexer.space^1 * lexer.word)
+lex:add_rule('user_defined_function', user_defined_function)
+lex:add_style('user_defined_function', lexer.STYLE_CONSTANT)
 
 -- Symbols. Tokens beginning with a :colon
 lex:add_rule('symbol', token(lexer.TYPE, ':' * lexer.word))

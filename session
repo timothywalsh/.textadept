@@ -1,17 +1,9 @@
-buffer: 13131 13131 0 /home/timothy/.textadept/lexers/julia.lua
+buffer: 1260 1260 0 /home/timothy/.textadept/init.lua
 bookmarks: 
-buffer: 371 371 0 /home/timothy/julia-syntax-test-cases/test_file.jl
-bookmarks: 
-buffer: 0 0 0 [Message Buffer]
-bookmarks: 
-buffer: 0 0 0 /home/timothy/.textadept/themes/base16-timbot-dark.lua
-bookmarks: 
-buffer: 958 958 0 /home/timothy/.textadept/init.lua
-bookmarks: 
-buffer: 414 414 0 /home/timothy/.textadept/modules/emacs_style_kill_ring.lua
+buffer: 3010 3004 46 /home/timothy/.textadept/modules/emacs_style_kill_ring.lua
 bookmarks: 
 size: false 1834 1006
-view1: 6
+view1: 2
 current_view: 1
 recent: /home/timothy/.textadept/modules/emacs_style_kill_ring.lua
 recent: /home/timothy/.textadept/init.lua

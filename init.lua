@@ -25,12 +25,15 @@ keys.cb = function() ui.switch_buffer(true) end
 
 -- Implement emacs-style kill ring
 emacs_style_kill_ring = require('emacs_style_kill_ring')
-keys.ck = function() emacs_style_kill_ring.kill_cut() end
-keys.ak = function() emacs_style_kill_ring.kill_copy() end
-keys.cy = function() emacs_style_kill_ring.yank() end
-keys.ay = function() emacs_style_kill_ring.yank_cycle() end
-keys.aY = function() emacs_style_kill_ring.yank_cycle_reverse() end
+-- Why is it that I can just pass the cut and copy parameters as words like this, not as strings or symbols?
+-- They haven't been defined anywhere, and I can check them for equality in the called function. Loose!
 keys.ca = function() buffer.home() end
+keys.ce = function() buffer.line_end() end
+keys.ck = function() emacs_style_kill_ring.kill('cut') end 
+keys.ak = function() emacs_style_kill_ring.kill('copy') end
+keys.cy = function() emacs_style_kill_ring.yank(       ) end
+keys.ay = function() emacs_style_kill_ring.yank('forward') end
+keys.aY = function() emacs_style_kill_ring.yank('reverse') end
 
 -- TODO. Implelent TeX-style unicode character insert
 

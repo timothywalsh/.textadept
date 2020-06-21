@@ -8,6 +8,8 @@ local kill_ring = { pos = 1, maxn = 20 }
 -- emacs_style_kill_ring functions
 local insert_into_kill_ring
 
+local yank_flag = false -- this flag being true indicates that the previous command was a normal yank() with no arguments
+
 ---[[
 function emacs_style_kill_ring.kill(mode) -- mode is either cut or copy
   local buffer = buffer
@@ -42,28 +44,34 @@ insert_into_kill_ring = function(txt)
 end
 --]]
 
--- TODO: If two or more lines are killed in succession, then they should be treated as a single kill
+-- TODO: If two or more lines are killed in succession, then they should be treated as a single kill... I somehow need to know what the preious command was... There must be a way to do this.
 -- Note: there is also buffer.paste() function. Also textadept.editing.paste_reindent()
 
 function emacs_style_kill_ring.yank(cycle) -- cycle_direction is either nil, forward or backward
   local buffer = buffer
   --local anchor, caret = buffer.anchor, buffer.current_pos
-  local original_position = buffer.current_pos
+  --local original_position = buffer.current_pos
   --if caret < anchor then anchor = caret end
-  txt = kill_ring[kill_ring.pos] -- should I make txt local?
+  local txt = kill_ring[kill_ring.pos] -- should I make txt local?
   if cycle == nil then
+    yank_flag = true -- I don't think this is gonna get the job done. Better sleep on it.
     --buffer:replace_sel(txt)
     --put the first item of the kill ring onto the clipboard
     buffer:copy_text(txt) -- copies txt to the clipboard
     buffer:paste() -- pastes the contents of the clipboard
-    local original_position = original_position
-    local new_position = buffer.current_pos
-    buffer:set_sel(new_position, original_position)
+    --local original_position = original_position
+    --local new_position = buffer.current_pos
+    --buffer:set_sel(original_position, original_position)
   elseif cycle == 'forward' then
+    --first, i need to un-yank the thing I just yanked... Try undo?
+    buffer:undo() -- this will only undo the normal yank if I just did a normal yank... 
+    -- If I did somethine else just before, it will undo something else, so only do it if the previous command was yank()
+    -- Hang on... Are you sure about this?
     kill_ring.pos = kill_ring.pos + 1
     if kill_ring.pos > #kill_ring then kill_ring.pos = 1 end
     emacs_style_kill_ring.yank()
-  elseif cycle == 'reverse' then
+  elseif cycle == 'reverse' and flag == true then
+    buffer:undo()
     kill_ring.pos = kill_ring.pos - 1
     if kill_ring.pos < 1 then kill_ring.pos = #kill_ring end
     emacs_style_kill_ring.yank()
@@ -71,10 +79,19 @@ function emacs_style_kill_ring.yank(cycle) -- cycle_direction is either nil, for
 end
 
 --Issues
--- I can only yank once. why???w why???hy???why???why???
---aaaaaaaaaaaaaa
---bbbbbbbbbbbaaaaaaaawhy???
---cccccccccccccccccc  cccccccccccwwhy???hy???why???ccccc
---ddddddddddddddddddwhy???
+-- Sometimes the caret jumps around. Why?Why?Why?Why?Why?Why?
+-- And sometimes I get two carets... weird. buggy
+-- is it because of the recursive function calls, I wonder???
+
+-- test area. Kill and yank to test the functionality
+-- kill...yank
+-- kill...yank
+-- kill...yank
+--dddddddddddddddddddd--dddddddddddddddddddd--ddddddd   ddddddddddddd   ddddddddddddd   
+--dddddddddddddddddddd--dddddddddddddddddddd--dddddddddddddddddddd--dddddddddddddddddddd
+--dddddddddddddddddddd--dddddddddddddddddddd--dddddddddddddddddddd
+--dddddddddddddddddddd--dddddddddddddddddddd--dddddddddddddddddddd
+--dddddddddddddddddddd--dddddddddddddddddddd--dddddddddddddddddddd
+
 
 return emacs_style_kill_ring
